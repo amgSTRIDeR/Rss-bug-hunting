@@ -35,13 +35,17 @@ function addToCart(id) {
   if (!product) {
     return;
   }
-  cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
-  renderCart();
+  if(cart.find(item => item.id === product.id)) {
+    increaseQty(product.id);
+  } else {
+    cart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
+    renderCart();
+  }
 }
 
 function increaseQty(id) {
   const item = cart.find((i) => i.id === id);
-  item.qty;
+  item.qty += 1;
   renderCart();
 }
 
