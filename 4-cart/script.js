@@ -78,6 +78,7 @@ function clearCart() {
 function renderCart() {
   cartItemsEl.innerHTML = "";
   let total = 0;
+
   cart.forEach((item) => {
     const lineTotal = item.price;
     const li = document.createElement("li");
@@ -99,9 +100,11 @@ function renderCart() {
     total = total - total * discount;
   }
 
+
+
   badgeEl.textContent = cart.reduce((acc, item) => (acc += item.qty), 0);
   totalEl.textContent = total;
-  emptyMsg.hidden = true;
+  emptyMsg.hidden = cart.length !== 0;
 }
 
 promoBtn.addEventListener("click", applyPromo);
