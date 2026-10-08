@@ -24,12 +24,12 @@ function getFiltered() {
   const category = categorySelect.value;
   const sort = sortSelect.value;
 
-  if (search) {
-    result = result.filter((p) => p.name.toLowerCase().includes(search));
-  }
-
   if (category !== "all") {
     result = products.filter((p) => p.category === category);
+  }
+
+  if (search) {
+    result = result.filter((p) => p.name.toLowerCase().includes(search));
   }
 
   if (sort === "asc") {
