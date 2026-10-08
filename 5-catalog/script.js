@@ -43,6 +43,7 @@ function getFiltered() {
 
 function render() {
   const items = getFiltered();
+  grid.textContent = "";
   items.forEach((p) => {
     const card = document.createElement("div");
     card.className = "card";
